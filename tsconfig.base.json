@@ -1,0 +1,29 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@core": ["libs/core/index.ts"],
+      "@design-system": ["libs/design-system/angular/index.ts"],
+      "@shared-directives": ["libs/shared/directives/src/index.ts"],
+      "@shared-enums": ["libs/shared/enums/src/index.ts"],
+      "@shared-models": ["libs/shared/models/src/index.ts"],
+      "@shared-pipes": ["libs/shared/pipes/src/index.ts"],
+      "@shared-types": ["libs/shared/types/src/index.ts"],
+      "@sing-health": ["libs/sing-health/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

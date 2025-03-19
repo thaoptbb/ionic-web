@@ -1,0 +1,69 @@
+{
+  "name": "core",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "ionic",
+  "sourceRoot": "apps/core/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/core",
+        "index": "apps/core/src/index.html",
+        "main": "apps/core/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/core/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/core/src/assets"
+        ],
+        "styles": [
+          "apps/core/src/styles.scss"
+        ],
+        "scripts": [],
+        "allowedCommonJsDependencies": [
+          "localforage",
+          "css-element-queries",
+          "cron-parser",
+          "lottie-web",
+          "autoprefixer",
+          "konva"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "core:build:production"
+        },
+        "development": {
+          "buildTarget": "core:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/core/**/*.ts", "apps/core/**/*.html"]
+      }
+    }
+  }
+}

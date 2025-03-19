@@ -1,0 +1,103 @@
+@use '@angular/cdk/overlay-prebuilt';
+/* Ionic styles */
+@import '@ionic/angular/css/core.css';
+
+@import '@ionic/angular/css/normalize.css';
+@import '@ionic/angular/css/structure.css';
+@import '@ionic/angular/css/typography.css';
+@import '@ionic/angular/css/display.css';
+
+@import '@ionic/angular/css/padding.css';
+@import '@ionic/angular/css/float-elements.css';
+@import '@ionic/angular/css/text-alignment.css';
+@import '@ionic/angular/css/text-transformation.css';
+@import '@ionic/angular/css/flex-utils.css';
+
+/* You can add global styles to this file, and also import other style files */
+@import 'swiper/scss';
+@import 'swiper/scss/pagination';
+
+*,
+::before,
+::after {
+  @apply box-border;
+}
+
+html {
+  &:not(.plt-mobile) {
+    --ds-max-width: 414px;
+
+    &.plt-tablet,
+    &.plt-desktop {
+      --ds-max-width: 375px;
+    }
+  }
+
+  &.plt-mobile {
+    --ds-max-width: 100dvw;
+  }
+}
+
+.cdk-overlay-container {
+  @apply left-1/2 transform -translate-x-1/2;
+  max-width: min(100dvw, 414px);
+}
+
+.ion-page {
+  @apply overflow-y-auto overflow-x-hidden;
+}
+
+ion-app {
+  @apply m-auto;
+  max-width: min(100dvw, 414px);
+  background: white;
+}
+
+ion-content {
+  @apply bg-white;
+}
+
+ion-skeleton-text {
+  @apply m-0;
+}
+
+swiper-container.custom-swiper {
+  @apply overflow-visible w-full;
+
+  swiper-slide {
+    @apply w-max max-w-full;
+    @apply transform transition-all duration-150;
+  }
+
+  .swiper-slide-shadow {
+    &-cards {
+      @apply bg-none;
+    }
+
+    &-left {
+      @apply bg-none;
+    }
+
+    &-right {
+      @apply bg-none;
+    }
+  }
+}
+
+swiper-container.navigator-swiper {
+  @apply pl-4
+}
+
+.ion-page-hidden:has(+ :not(.ion-page-hidden)) {
+  display: contents !important;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 14, 37, 0.6);
+  }
+}
