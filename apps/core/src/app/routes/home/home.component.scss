@@ -1,0 +1,35 @@
+:host {
+  @apply bg-white;
+
+  ion-content {
+    &.access-menu {
+      @apply bg-gray-200 relative duration-75 top-16 z-10 overflow-hidden;
+      border-radius: 42.8571px;
+      max-height: calc(100dvh - 132px);
+    }
+  }
+
+  ion-router-outlet {
+    top: 94px;
+
+    &.access-menu {
+      height: calc(100dvh - 332px);
+    }
+
+    &:not(.access-menu) {
+      height: calc(100dvh - calc(80px + 94px));
+    }
+
+    &.show-header {
+      --top: 94px;
+    }
+
+    &:not(.show-header) {
+      --top: 0px;
+    }
+  }
+
+  ion-menu {
+    --width: 328px;
+  }
+}

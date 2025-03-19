@@ -1,5 +1,9 @@
 <ion-content>
   <section class="navigator" >
     Navigator
+
+    <div *ngFor="let item of items; let i = index">
+      <p>Item {{ i + 1 }}</p>
+    </div>
   </section>
 </ion-content>

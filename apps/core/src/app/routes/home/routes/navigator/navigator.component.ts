@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { ViewDidEnter } from '@ionic/angular';
 
 @Component({
   selector: 'ionic-home-navigator',
@@ -7,13 +6,10 @@ import { ViewDidEnter } from '@ionic/angular';
   styleUrls: ['./navigator.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeNavigatorComponent implements OnInit, ViewDidEnter {
-  ionViewDidEnter(): void {
-    console.log('b')
+export class HomeNavigatorComponent implements OnInit {
+  items: number[] = [];
+
+  public ngOnInit() {
+    this.items = Array.from({ length: 100 }, (_, i) => i + 1);
   }
-  ngOnInit(): void {
-    console.log('a')
-  }
-  //#region Properties
-  //#endregion
 }
